@@ -1,0 +1,338 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: rgb(15 23 40);
+     color: rgb(148 163 184); 
+      font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+     }
+  body{
+    scroll-behavior: smooth; /* makes the scrolling smooth  */ 
+   }
+  #everything{
+    display: flex;
+  }
+ .info{
+  position:fixed;
+ } 
+  h1{
+    margin-left: 70px;
+    margin-top: 100px; 
+  width:400px;
+  font-size: 40px;
+  color: #E2E8F0;
+  }
+  h4{
+    margin-left: 70px;
+    margin-top: 20px;
+    margin-bottom: 70px;
+    width: 350px;
+    font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    opacity: 1;
+    transition: opacity 3s ease-in-out;
+  }
+  h4.show {
+    opacity: 0;
+}
+.responsive-aboutme{
+  display: none;
+}
+   #aboutme1{
+   margin-top: 120px;
+    margin-left: 550px;
+    margin-right:120px;
+  }
+   #aboutme1 p{
+   font-size: 18px;
+   opacity: 0; /* Initially make them transparent */
+   transform: translateX(100%); /* Start them outside the viewport to the right */
+   animation: slideInFromRight 1s ease-in-out forwards; /* Apply slide-in animation */
+   animation-delay: 5s; /* Delay the animation by 5 seconds */
+ } 
+ @keyframes slideInFromRight {/* Add animation properties to the elements with id skills */
+   0% {
+     opacity: 0;
+     transform: translateX(200%); /* Start position, outside the viewport to the right */
+   }
+   100% {
+     opacity: 1;
+     transform: translateX(0); /* End position, move in from the right */
+   }
+  }
+  .aboutme2{
+    margin-top: 20px;
+  }
+  
+ul {
+  list-style-type: none;
+	margin-left: 90px;
+	
+}
+.line li {
+  margin-bottom: 20px;
+  position: relative; /* Create a relative position context for pseudo-element */
+ font-size:15px;
+ font-weight: 600;
+ padding-left: 45px;
+}
+.line li:before {
+  content: ""; /* Add content for the pseudo-element */
+  position: absolute; /* Position the pseudo-element absolutely */
+  top: 50%; /* Align the line to the middle of the list item */
+  left: 0; /* Position the line to the left of the list item */
+  width: 30px; /* Set the width of the line */
+  height: 10%; /* Set the height of the line */
+  background: #E2E8F0; /* Use the same color as the background image */
+}
+ a{
+  text-decoration: none;
+}
+nav{
+  width:fit-content;
+  opacity: 0; /* Initially make the nav element transparent */
+    transform: translateX(-100%); /* Initially move it outside the viewport to the left */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Apply transitions */
+}
+.nav-animation {
+  opacity: 1;
+  transform: translateX(0);
+}
+li:hover {
+  color: #E2E8F0;
+  transform:scale(1.5) translateX(60px);
+}
+.hover-effect { /*to implement the nav item hovering when the mouse is on the corresponding section*/
+  color: #E2E8F0;
+  transform:scale(1.5) translateX(60px);
+}
+
+.link{
+  margin-left: 70px;
+  display: flex;
+  justify-content: flex-start; /* Align items from the start */ 
+}
+.link img{
+ height: 23px;
+  width:25px;
+  margin: 70px 0px 20px 20px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color:#E2E8F0; 
+}
+.animated-link {
+  opacity: 0; /* Initially make the links transparent */
+  transform: translateX(-100%); /* Initially move them to the left */
+  animation: slideInFromLeft 1s ease-in-out forwards; /* Apply animation */
+  animation-delay: 6s; /* Add a delay of 6 seconds */
+}
+
+@keyframes slideInFromLeft {
+  0% {
+      opacity: 0;
+      transform: translateX(-200%); /* Start position */
+  }
+  100% {
+      opacity: 1;
+      transform: translateX(0); /* End position */
+  }
+}
+.responsive-skills{
+  display: none;
+}
+#skills{
+  display: flex;
+  justify-content:space-between;
+   margin-top: 50vh;
+   margin-left: 570px;
+   margin-right: 170px;
+}
+#skills img{
+  position: relative;
+  height: 50px;
+  width:50px;
+  background-color: aqua;
+ } 
+ #skills p{
+  text-align: center;
+}
+.js{
+  position: relative; /*to make the JAVASCRIPT word become centered*/
+  right: 14px;
+}
+.gt{
+  position: relative; /*adjust the git logo as the javascript too was affecting it, making the whole thing to be unevenly spaced*/
+  right:20px
+}
+.box{
+  opacity: 0; /* Initially make them transparent */
+  transform: translateX(100%); /* Start them outside the viewport to the right */
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Apply transitions */
+}
+.box.appear {
+  opacity: 1;
+  transform: translateX(0); /* End position, move in from the right */
+}
+.box:hover{
+  transform:scale(1.2) translateY(-20px);
+}
+.box:hover + .box{ /*makes the element after the one being hovered on to hover too*/
+  transform: scale(1.1) translateY(-10px);
+}
+.box:has(+ .box:hover) { /*makes an element hover if an element either on it's left or right is being hovered on*/
+  transform: scale(1.1) translateY(-10px);
+}
+
+.cursor-highlight {
+  position: absolute;
+  border-radius: 50%;
+  width: 70px; 
+  height: 70px; 
+  background-color: rgba(255, 255, 255, 0.4);
+  pointer-events: none; /* Ensures it doesn't interfere with clicks */
+  transform: translate(-50%, -50%); /* Center it on cursor */
+  transition: transform 0.2s, opacity 0.1s; /* Add smooth transitions */
+  z-index: 1; /* Ensures it's above other content */
+}
+.link-to-resume{
+  display: flex;
+  margin-top: 100px;
+  margin-left: 570px;
+  margin-bottom: 50px;
+  width: fit-content;
+}
+.link-to-resume i { 
+  color: #E2E8F0;
+}
+
+ .resume{
+  font-size: 20px;
+  font-weight: 700;
+  width: fit-content;
+}
+.link-to-resume:hover i {
+  transform: translateX(10px); /* Adjust the value as needed */
+}
+
+.resume:hover{
+  color: #E2E8F0;
+  border-bottom: solid 2px aqua;
+  
+}
+@media (max-width: 768px) {
+  #everything{
+    display: block;
+ }
+ h1{
+  position: static;
+  margin-top:50px;
+  margin-left: 40px;
+  font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 40px;
+  font-weight: 800;
+  width: fit-content;
+ }
+ h4{
+  margin-left: 40px;
+  margin-top: 10px;
+  margin-bottom: 99px;
+ }
+ .link{
+  margin-left: 30px;
+  margin-top: -90px;
+    }
+    .link img{
+      margin-top: 30px;
+    }
+  .info{
+    position:static;
+  }
+  nav{
+    display: none;
+  }
+ .responsive-aboutme{
+  display: block;
+  color: #E2E8F0;
+  font-weight: 900;
+  margin-bottom: 40px;
+ }
+  #aboutme1{
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  #aboutme1 p{
+    margin-right: 80px;
+  }
+  
+  .responsive-skills{
+    display: block;
+    color: #E2E8F0;
+    font-size: 18px;
+    font-weight: 900;
+    margin-top: 90px;
+    margin-left: 60px;
+    margin-bottom: 4px;
+   }
+   #skills{
+    display: flex;
+    justify-content:space-between;
+     margin-left: 60px;
+     margin-right: 170px;
+     margin-top: 60px;
+  }
+  .link-to-resume{
+    margin-left: 60px;
+  }
+  .cursor-highlight {
+    display: none;
+   }
+}
+
+  @media (max-width: 480px) {
+    h1{
+      font-size: 30px;
+    }
+    #aboutme1 p{
+      margin-right: 10px;
+    }
+    #skills{
+      margin-left: 40px;
+    }
+    #skills img{
+      position: relative;
+      height: 30px;
+      width:30px;
+      background-color: aqua;
+      margin-right: 35px;
+     } 
+     #skills p{
+      text-align: center;
+      font-size: 10px;
+      margin-right: 32px;
+
+    }
+    .js {
+      position: relative;
+      right: 10px;
+  }
+    .gt {
+      position: relative;
+      right: 10px;
+}
+.link-to-resume{
+  margin-left: 40px;
+}
+  }
+  @media (max-width: 320px){
+    #aboutme1 p{
+      width: 160%;
+    }
+  }
+  
+  
+  
+
+
+  
+
+
